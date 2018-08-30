@@ -1,0 +1,5 @@
+.noteView {
+    padding: 10px 40px;
+    display: flex;
+    flex-wrap: wrap;
+}

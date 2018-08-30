@@ -1,0 +1,17 @@
+.navbar {
+    height: 100px;
+    
+}
+
+.navbar-brand {
+    margin-left: 40px;
+}
+
+.navbar-collapse {
+    margin-right: 40px;
+}
+
+.navbar-collapse .navbar-nav {
+    margin-right: 10px;
+}
+
