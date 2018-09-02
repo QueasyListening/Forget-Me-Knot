@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
-import './NoteView.css'
+import './NoteList.css'
 import { testData } from '../../testData';
 import NoteCard from '../NoteCard/NoteCard'
 
-class NoteView extends Component {
-    state = {
-        notes: testData,
+class NoteList extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            notes: testData,
+        }
+
     }
 
     render() {
         return (
             
-            <div className='noteView'>
+            <div className='noteList'>
               {this.state.notes.map(note => <NoteCard key={note.id} note={note}/>)}
             </div>
         )
     }
 }
 
-export default NoteView;
+export default NoteList;
