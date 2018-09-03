@@ -47,8 +47,8 @@ class Navbar extends Component {
                 <li className="nav-item">
                   <button className="btn" href="/publicNotes">Add Note</button>
                 </li>
-                <li className="nav-item">\
-                  <LoginModal/>
+                <li className="nav-item">
+                  <LoginModal login={this.props.login} />
                   
                 </li>
                 <li className="nav-item">

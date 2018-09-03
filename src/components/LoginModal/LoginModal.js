@@ -9,6 +9,8 @@ class LoginModal extends Component{
         super(props);
         this.state = {
             modalIsOpen: false,
+            usernameInput: '',
+            passwordInput:''
         }
     }
 
@@ -26,16 +28,22 @@ class LoginModal extends Component{
 
     render() {
         return (
-        <div className='loginModal'>
+        <div>
             <Modal
-            className='loginModal'
             isOpen={this.state.modalIsOpen}
             onAfterOpen={this.afterOpenModal}
             onRequestClose={this.closeModal}
             contentLabel="Example Modal"
+            overlayClassName='overlay'
+            className='loginModal'
             >
-            <h2>This is a login modal</h2>
-            <button onClick={this.closeModal} >Exit</button>
+            <div className=''>
+                <h2>This is a login modal</h2>
+                <input value={this.state.usernameInput} placeholder='username' className='loginInput' />
+                <input value={this.state.passwordInput} placeholder='password' className='loginInput' />
+                <button onclick={this.props.login} >Log In</button>
+                <button onClick={this.closeModal} >Cancel</button>
+            </div>
             </Modal>
             <button className="btn" onClick={this.openModal}>Login</button>
         </div>

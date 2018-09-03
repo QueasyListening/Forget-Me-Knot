@@ -39,8 +39,8 @@ class App extends Component {
     
   }
 
-  login() {
-    this.openModal;
+  login = () => {
+    console.log('logging in');
   }
 
   logout = () => {
