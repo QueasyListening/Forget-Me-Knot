@@ -1,17 +1,132 @@
 .navbar {
-    height: 100px;
-    
+    height: 125px;
+    background-color: lightgray;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 45px;
+    transition: all .5s ease-in-out;
+}    
+
+.nav-title {
+    text-decoration: none;
+    color: black;
+    font-size: 1.25em;
+}
+.navbar-items {    
+
 }
 
-.navbar-brand {
-    margin-left: 40px;
+.nav-item {
+    display: inline-block;
+    margin: 0 35px;
+    text-align: center;
+    font-size: 1.75em;
+    margin-top: 31px;
+    font-weight: 600;
+
 }
 
-.navbar-collapse {
-    margin-right: 40px;
+.nav-item:hover {
+    cursor: pointer;
 }
 
-.navbar-collapse .navbar-nav {
-    margin-right: 10px;
+.nav-item:after {
+    position: relative;
+    content:'';
+    display: inline-block;
+    width: .05%;
+    height: 2px;
+    background: black;
+    transition: width .2s;
+    top: -20px;
+    opacity: 0;
 }
 
+.nav-item:hover::after {
+    width: 100%;
+    opacity: 1;    
+}
+
+.search-field {
+    border-radius: 100px;
+    height: 23px;
+    margin-right: 22px;
+    border: 2px solid darkgray;
+}
+
+.search-btn {
+    background: white;
+    border-radius: 100px;
+    color: green;
+    border: 1.5px solid green;
+    height: 30px;
+    width: 80px;
+}
+
+.hamburger {
+    display: none;
+    width: 35px;
+    height: 35px;
+    border: 2px solid darkslategray;
+    border-radius: 10px;
+    padding: 3px;
+    background: white;
+}
+
+.hamburger:hover {
+    cursor: pointer;
+}
+
+.lines {
+    margin-top: 8px;
+}
+
+.line {
+    background-color: darkslategray;
+    width: 25px;
+    height: 3px;
+    border-radius: 20px;
+    display: block;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.drop-down {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+
+.drop-down-item {
+    display: block;
+    align-self: center;
+    /* width: 85px; */
+    height: 40px;
+    opacity: 0.0;
+    transition: opacity .5s ease;
+}
+
+.active {
+    display: flex;
+}
+
+
+@media(max-width: 988px) {
+    .navbar {
+        
+    }
+
+    .nav-title, .search-btn, .search-field, .hamburger {
+        margin-top: 41px;
+    }
+
+    .navbar-items {
+        display: none;
+    }
+
+    .hamburger {
+        display: inline-block;
+    }
+}

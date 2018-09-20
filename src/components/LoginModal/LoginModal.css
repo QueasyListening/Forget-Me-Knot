@@ -1,4 +1,4 @@
-.overlay{
+.overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -17,9 +17,20 @@
     border-radius: 5px;
     padding: 3%;
     display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginElements {
+    padding-top: 10px;
 }
 
 .loginInput {
-    margin: 5px auto;
+    margin: 12px auto;
     width: 100%;
+}
+
+.btn {
+    margin: 20px 15px;
+    width:100px;
 }

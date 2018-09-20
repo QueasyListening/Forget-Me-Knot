@@ -11,7 +11,7 @@ class NoteCard extends Component {
         return (
             <div className='noteCard'>
             <a onClick={this.handleClick} >
-                <h6>{this.props.note.title}</h6>
+                <h3>{this.props.note.title}</h3>
                 <hr/>
                 <div className='cardText'>{this.props.note.text}</div>
             </a>

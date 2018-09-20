@@ -1,5 +1,6 @@
 .noteList {
     padding: 10px 40px;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
 }

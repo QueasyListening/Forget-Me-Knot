@@ -15,45 +15,52 @@ class Navbar extends Component {
 
   }
 
+  toggleDropDown = () => {
+    const dropDown = document.getElementById('drop-down');
+    const nav = document.getElementsByClassName('navbar')[0];
+    const dropDownItems = document.getElementsByClassName('drop-down-item');
+    console.log(dropDownItems);
+    //dropDown.classList.toggle('active');
+    if (nav.style.height < '300px') {
+      nav.style.height = '350px';
+      for (let i = 0; i < dropDownItems.length; i++) {
+        dropDownItems[i].style.opacity = '1.0';
+      }
+    } else {
+      nav.style.height = '125px';
+      for (let i = 0; i < dropDownItems.length; i++) {
+        dropDownItems[i].style.opacity = '0.0';
+      }
+    }
+  }
+
   render() {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a className="navbar-brand" href="/">Forget Me Knot</a>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
-            </button>
-    
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-              <form className="form-inline my-2 my-lg-0">
-                <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value={this.state.searchBarValue} onChange={this.handleSearchInput} />
-                <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-              </form>
-              <ul className="navbar-nav ml-auto">
-                <li className="nav-item active">
-                  <a className="nav-link" href="/">My Notes<span className="sr-only">(current)</span></a>
-                </li>
-                <li className="nav-item dropdown">
-                  <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Options
-                  </a>
-                  <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a className="dropdown-item" href="/">Settings</a>
-                    <div className="dropdown-divider"></div>
-                    <a className="dropdown-item" href="/">Logout</a>
-                  </div>
-                </li>
-                <li className="nav-item">
-                  <button className="btn" href="/publicNotes">Add Note</button>
-                </li>
-                <li className="nav-item">
-                  <LoginModal login={this.props.login} />
-                  
-                </li>
-                <li className="nav-item">
-                  <button className="btn" href="/publicNotes">Register</button>
-                </li>
+        <nav className='navbar'>
+            <a className='nav-title' href='#'>Forget Me Knot</a>
+            <div className='navbar-items'>
+              <ul>
+                <li className='nav-item'>Home</li>
+                <li className='nav-item'><LoginModal/></li>
+                <li className='nav-item'>About</li>
+              </ul>
+            </div>
+            <form className='search'>
+              <input className='search-field'></input>
+              <button className='search-btn'>Search</button>
+            </form>
+            <div className='hamburger' onClick={this.toggleDropDown}>
+              <div className='lines'>
+                <span className='line'></span>
+                <span className='line'></span>
+                <span className='line'></span>
+              </div>
+            </div>
+            <div className='drop-down' id='drop-down'>
+              <ul>
+                <li className='nav-item drop-down-item'>Home</li>
+                <li className='nav-item drop-down-item'><LoginModal/></li>
+                <li className='nav-item drop-down-item'>About</li>
               </ul>
             </div>
           </nav>

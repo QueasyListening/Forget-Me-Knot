@@ -19,7 +19,7 @@ class LoginModal extends Component{
     }
 
     afterOpenModal = () => {
-
+        document.getElementById('focus').focus();
     }
 
     closeModal = () => {
@@ -37,15 +37,16 @@ class LoginModal extends Component{
             overlayClassName='overlay'
             className='loginModal'
             >
-            <div className=''>
-                <h2>This is a login modal</h2>
-                <input value={this.state.usernameInput} placeholder='username' className='loginInput' />
+            <div className='loginElements'>
+                <input id='focus' value={this.state.usernameInput} placeholder='username' className='loginInput' />
                 <input value={this.state.passwordInput} placeholder='password' className='loginInput' />
-                <button onclick={this.props.login} >Log In</button>
-                <button onClick={this.closeModal} >Cancel</button>
+                <div className='d-flex justify-content-center'>
+                    <button onclick={this.props.login} className='loginButton btn btn-primary'>Log In</button>
+                    <button onClick={this.closeModal} className='cancelButton btn btn-secondary'>Cancel</button>
+                </div>
             </div>
             </Modal>
-            <button className="btn" onClick={this.openModal}>Login</button>
+            <div className='' onClick={this.openModal}>Login</div>
         </div>
         )
     }
