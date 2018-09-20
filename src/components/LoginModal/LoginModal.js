@@ -9,10 +9,12 @@ class LoginModal extends Component{
         super(props);
         this.state = {
             modalIsOpen: false,
-            usernameInput: '',
-            passwordInput:''
+            username: '',
+            password:''
         }
+        Modal.setAppElement(document.getElementById('root'));
     }
+
 
     openModal = () => {
         this.setState({ modalIsOpen: true });
@@ -26,6 +28,15 @@ class LoginModal extends Component{
         this.setState({ modalIsOpen: false })
     }
 
+    handleInput = (event) => {
+        const input = event.target.placeholder;
+        this.setState({ [input]: event.target.value })
+    }
+
+    handleLogin = () => {
+        this.props.login(this.state.username, this.state.password);
+    }
+
     render() {
         return (
         <div>
@@ -35,15 +46,16 @@ class LoginModal extends Component{
             onRequestClose={this.closeModal}
             contentLabel="Example Modal"
             overlayClassName='overlay'
-            className='loginModal'
+            className='login-modal'
+            login={this.props.login}
             >
-            <div className='loginElements'>
-                <input id='focus' value={this.state.usernameInput} placeholder='username' className='loginInput' />
-                <input value={this.state.passwordInput} placeholder='password' className='loginInput' />
-                <div className='d-flex justify-content-center'>
-                    <button onclick={this.props.login} className='loginButton btn btn-primary'>Log In</button>
-                    <button onClick={this.closeModal} className='cancelButton btn btn-secondary'>Cancel</button>
-                </div>
+            <div className='login-elements'>
+                <input id='focus' value={this.state.usernameInput} onChange={this.handleInput} placeholder='username' className='login-input' />
+                <input value={this.state.passwordInput} onChange={this.handleInput} placeholder='password' className='login-input' />
+                
+                    <button onClick={this.handleLogin} className='modal-btn login-btn'>Log In</button>
+                    <button onClick={this.closeModal} className='modal-btn cancel-btn'>Cancel</button>
+            
             </div>
             </Modal>
             <div className='' onClick={this.openModal}>Login</div>

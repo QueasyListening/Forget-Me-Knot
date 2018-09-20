@@ -19,13 +19,15 @@ class Navbar extends Component {
     const dropDown = document.getElementById('drop-down');
     const nav = document.getElementsByClassName('navbar')[0];
     const dropDownItems = document.getElementsByClassName('drop-down-item');
-    console.log(dropDownItems);
     //dropDown.classList.toggle('active');
     if (nav.style.height < '300px') {
       nav.style.height = '350px';
-      for (let i = 0; i < dropDownItems.length; i++) {
-        dropDownItems[i].style.opacity = '1.0';
-      }
+      window.setTimeout(() => {
+        for (let i = 0; i < dropDownItems.length; i++) {
+          dropDownItems[i].style.opacity = '1.0';
+        }
+      
+      }, 200);
     } else {
       nav.style.height = '125px';
       for (let i = 0; i < dropDownItems.length; i++) {
@@ -41,7 +43,7 @@ class Navbar extends Component {
             <div className='navbar-items'>
               <ul>
                 <li className='nav-item'>Home</li>
-                <li className='nav-item'><LoginModal/></li>
+                <li className='nav-item'><LoginModal login={this.props.login}/></li>
                 <li className='nav-item'>About</li>
               </ul>
             </div>
@@ -59,7 +61,7 @@ class Navbar extends Component {
             <div className='drop-down' id='drop-down'>
               <ul>
                 <li className='nav-item drop-down-item'>Home</li>
-                <li className='nav-item drop-down-item'><LoginModal/></li>
+                <li className='nav-item drop-down-item'><LoginModal login={this.props.login} /></li>
                 <li className='nav-item drop-down-item'>About</li>
               </ul>
             </div>

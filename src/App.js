@@ -39,8 +39,8 @@ class App extends Component {
     
   }
 
-  login = () => {
-    console.log('logging in');
+  login = (username, password) => {
+    console.log('logging in with', username, password);
   }
 
   logout = () => {

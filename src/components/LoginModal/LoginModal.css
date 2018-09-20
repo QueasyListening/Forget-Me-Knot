@@ -1,3 +1,7 @@
+.login-input, .modal-btn:focus {
+    outline: none;
+}
+
 .overlay {
     position: fixed;
     top: 0;
@@ -7,30 +11,59 @@
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-.loginModal {
+.login-modal {
     position: fixed;
     top: 20%;
     bottom: 40%;
     left: 25%;
     right: 25%;
     background-color: white;
-    border-radius: 5px;
+    border-radius: 25px;
     padding: 3%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.loginElements {
+.login-elements {
     padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.loginInput {
+.login-input {
     margin: 12px auto;
     width: 100%;
+    border-radius: 100px;
+    height: 33px;
+    border: 2px solid darkgray;
+    padding: 0 15px;
 }
 
 .btn {
-    margin: 20px 15px;
-    width:100px;
+    
+}
+.modal-btn {
+    width:200px;
+    background: white;
+    border: 2px solid darkslategray;
+    border-radius: 20px;
+    height: 35px;
+    width: 48%;
+    margin-top: 30px;
+}
+
+.modal-btn:hover {
+    cursor: pointer;
+}
+.login-btn {
+    
+}
+
+.cancel-btn {
+    
+    border: 2px solid red;
+    
+
 }
