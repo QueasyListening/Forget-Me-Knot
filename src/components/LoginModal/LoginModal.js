@@ -1,8 +1,9 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import reactDOM from 'react-dom';
 import Modal from 'react-modal'
 import './LoginModal.css';
-
+import axios from 'axios';
+import config from './../../config.js';
 
 class LoginModal extends Component{
     constructor(props) {
@@ -33,8 +34,17 @@ class LoginModal extends Component{
         this.setState({ [input]: event.target.value })
     }
 
-    handleLogin = () => {
-        this.props.login(this.state.username, this.state.password);
+    handleLogin = (event) => {
+        const credentials = { username: this.state.username, password: this.state.password };
+        axios.post(`${config.apiUrl}/user/login`, credentials)
+        .then(response => {
+            console.log(response);
+            this.props.login(response.data.user);
+            this.closeModal();
+        })
+        .catch(error => {
+            console.log(error);
+        });
     }
 
     render() {
@@ -44,19 +54,21 @@ class LoginModal extends Component{
             isOpen={this.state.modalIsOpen}
             onAfterOpen={this.afterOpenModal}
             onRequestClose={this.closeModal}
-            contentLabel="Example Modal"
+            contentLabel="Login"
             overlayClassName='overlay'
             className='login-modal'
             login={this.props.login}
             >
-            <div className='login-elements'>
+            <form className='login-elements'>
                 <input id='focus' value={this.state.usernameInput} onChange={this.handleInput} placeholder='username' className='login-input' />
                 <input value={this.state.passwordInput} onChange={this.handleInput} placeholder='password' className='login-input' />
-                
-                    <button onClick={this.handleLogin} className='modal-btn login-btn'>Log In</button>
-                    <button onClick={this.closeModal} className='modal-btn cancel-btn'>Cancel</button>
-            
-            </div>
+                <button onClick={(event) => {
+                    event.preventDefault(); 
+                    this.handleLogin();
+                }} 
+                type='submit' className='modal-btn login-btn'>Log In</button>
+                <button onClick={this.closeModal} className='modal-btn cancel-btn'>Cancel</button>
+            </form>
             </Modal>
             <div className='' onClick={this.openModal}>Login</div>
         </div>

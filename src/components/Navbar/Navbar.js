@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Navbar.css';
 import LoginModal from '../LoginModal/LoginModal';
+import logo from '../../images/fingerKnot.png'
 
 class Navbar extends Component {
   constructor(props) {
@@ -16,7 +17,6 @@ class Navbar extends Component {
   }
 
   toggleDropDown = () => {
-    const dropDown = document.getElementById('drop-down');
     const nav = document.getElementsByClassName('navbar')[0];
     const dropDownItems = document.getElementsByClassName('drop-down-item');
     //dropDown.classList.toggle('active');
@@ -39,7 +39,9 @@ class Navbar extends Component {
   render() {
     return (
         <nav className='navbar'>
-            <a className='nav-title' href='#'>Forget Me Knot</a>
+            <div className='logo-text-img'>
+            <a className='nav-title' href='#'>Forget Me Knot</a><img className='logo' src={logo}/>
+            </div>
             <div className='navbar-items'>
               <ul>
                 <li className='nav-item'>Home</li>

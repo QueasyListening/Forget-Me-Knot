@@ -4,3 +4,9 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+
+@media (max-width: 428px) {
+    .noteList {
+        padding: 10px 0px;
+    }
+}

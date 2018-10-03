@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import NoteList from './components/NoteList/NoteList';
-import LoginModal from './components/LoginModal/LoginModal';
+import WelcomeBar from './components/WelcomeBar/WelcomeBar';
+import axios from 'axios';
+
 
 class App extends Component {
   constructor(props) {
@@ -11,6 +13,7 @@ class App extends Component {
     this.state = {
       username: '',
       notes: [],
+      loggedInAs: false,
     }
   }
 
@@ -39,8 +42,8 @@ class App extends Component {
     
   }
 
-  login = (username, password) => {
-    console.log('logging in with', username, password);
+  login = (user) => {
+    this.setState({ loggedInAs: user.username, notes: user.notes });
   }
 
   logout = () => {
@@ -60,6 +63,7 @@ class App extends Component {
       <div className="App">
         <div className='page'>
         <Navbar search={this.search} login={this.login} logout={this.logout} register={this.register}/>
+        <WelcomeBar loggedInAs={this.state.loggedInAs}/>
         <NoteList notes={this.state.notes}
                   addNote={this.addNote}
                   deleteNote={this.deleteNote} />

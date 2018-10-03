@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './NoteCard.css';
+import NoteView from '../NoteView/NoteView';
 
 class NoteCard extends Component {
     
@@ -10,11 +11,13 @@ class NoteCard extends Component {
     render() {
         return (
             <div className='noteCard'>
-            <a onClick={this.handleClick} >
-                <h3>{this.props.note.title}</h3>
-                <hr/>
-                <div className='card-text'>{this.props.note.text}</div>
-            </a>
+                <NoteView title={this.props.note.title} text={this.props.note.text} />
+                <div onClick={this.handleClick} >
+                    <h3>{this.props.note.title}</h3>
+                    <hr/>
+                    <div className='card-text'>{this.props.note.text}</div>
+                </div>
+                
             </div>
         )
     }
