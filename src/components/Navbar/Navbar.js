@@ -44,7 +44,7 @@ class Navbar extends Component {
             </div>
             <div className='navbar-items'>
               <ul>
-                <li className='nav-item'>Home</li>
+                <li className='nav-item'>New Note</li>
                 <li className='nav-item'><LoginModal login={this.props.login}/></li>
                 <li className='nav-item'>About</li>
               </ul>
@@ -62,7 +62,7 @@ class Navbar extends Component {
             </div>
             <div className='drop-down' id='drop-down'>
               <ul>
-                <li className='nav-item drop-down-item'>Home</li>
+                <li className='nav-item drop-down-item'>New Note</li>
                 <li className='nav-item drop-down-item'><LoginModal login={this.props.login} /></li>
                 <li className='nav-item drop-down-item'>About</li>
               </ul>

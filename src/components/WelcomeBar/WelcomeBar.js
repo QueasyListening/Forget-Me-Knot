@@ -11,7 +11,9 @@ const WelcomeBar = (props) => {
         )
     } else {
         return (
-            <div className='welcome'>Log in to view/save your notes!</div>
+            <div className='welcome'>
+                <div className='welcome-text'>Log in to view/save your notes!</div>
+            </div>
         )
     }
 }
