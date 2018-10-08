@@ -1,0 +1,11 @@
+
+.note-delete-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.yes-btn {
+    border: 2px solid green;
+    margin-right: 11px;
+}

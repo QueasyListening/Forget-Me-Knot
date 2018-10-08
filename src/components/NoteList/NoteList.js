@@ -9,7 +9,7 @@ class NoteList extends Component {
         return (
             
             <div className='noteList'>
-              {this.props.notes.map(note => <NoteCard key={note.id} note={note}/>)}
+              {this.props.notes.map(note => <NoteCard key={note._id} note={note} updateNotes={this.props.updateNotes}/>)}
             </div>
         )
     }

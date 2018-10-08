@@ -12,6 +12,20 @@ h3 {
   font-weight: 0;
 }
 
+.card-icons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card-icon {
+  margin-right: 5px;
+  height: 17px;
+}
+
+.card-icon:hover {
+  cursor: pointer;
+}
+
 .card-text {
   font-family: 'Open Sans', sans-serif;
 }

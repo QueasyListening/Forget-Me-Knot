@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './Navbar.css';
 import LoginModal from '../LoginModal/LoginModal';
-import logo from '../../images/fingerKnot.png'
+import NoteAdd from '../NoteAdd/NoteAdd';
+import logo from '../../images/fingerKnot.png';
 
 class Navbar extends Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class Navbar extends Component {
       nav.style.height = '350px';
       window.setTimeout(() => {
         for (let i = 0; i < dropDownItems.length; i++) {
+          dropDownItems[i].style.display = 'block';
           dropDownItems[i].style.opacity = '1.0';
         }
       
@@ -44,7 +46,7 @@ class Navbar extends Component {
             </div>
             <div className='navbar-items'>
               <ul>
-                <li className='nav-item'>New Note</li>
+                <li className='nav-item'><NoteAdd updateNotes={this.props.updateNotes} /></li>
                 <li className='nav-item'><LoginModal login={this.props.login}/></li>
                 <li className='nav-item'>About</li>
               </ul>

@@ -1,5 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Modal from 'react-modal';
+import './NoteView.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye } from '@fortawesome/free-regular-svg-icons';
+
 
 class NoteView extends Component {
     constructor(props) {
@@ -7,7 +11,6 @@ class NoteView extends Component {
         this.state = {
             title: '',
             text: '',
-            id: '',
             modalIsOpen: false,
         }
         Modal.setAppElement(document.getElementById('root'));
@@ -21,25 +24,29 @@ class NoteView extends Component {
         this.setState({ modalIsOpen: false });
     }
 
+    afterOpenModal = () => {
+        //document.getElementById('focus').focus();
+    }
+
     render() {
         return (
-            <div>
+            <Fragment>
                 <Modal
                 isOpen={this.state.modalIsOpen}
                 onAfterOpen={this.afterOpenModal}
                 onRequestClose={this.closeModal}
                 contentLabel={this.title}
                 overlayClassName='overlay'
-                className='login-modal'
+                className='note-view-modal'
                 >
-                    <div>
-                        <div className='note-title'>{this.title}</div>
+                    <div className='note-view-content'>
+                        <h1 className='note-view-title'>{this.props.title}</h1>
                         <hr/>
-                        <p className='note-text'>{this.text}</p>
+                        <p className='note-view-text'>{this.props.text}</p>
                     </div>
                 </Modal>
-                <a onClick={this.openModal} className='fa fa-eye' aria-hidden='true'></a>
-            </div>
+                <FontAwesomeIcon className='card-icon' icon={faEye} onClick={this.openModal}/>
+            </Fragment>
         )
     }
 }

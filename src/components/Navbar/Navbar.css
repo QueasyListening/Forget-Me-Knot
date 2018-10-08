@@ -113,7 +113,7 @@
 }
 
 .drop-down-item {
-    display: block;
+    display: none;
     align-self: center;
     /* width: 85px; */
     height: 40px;

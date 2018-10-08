@@ -1,0 +1,33 @@
+/* card-icon css is in JobCard.css */
+
+.note-edit-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.note-edit-title {
+    border: 2px solid grey;
+    border-radius: 20px;
+    height: 33px;
+    padding: 0 15px;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.note-edit-text {
+    resize:none;
+    border: 2px solid gray;
+    border-radius: 15px;
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+.update-btn {
+    border: 2px solid green;
+}
+
+.cancel-btn {
+    border: 2px solid red;
+}
