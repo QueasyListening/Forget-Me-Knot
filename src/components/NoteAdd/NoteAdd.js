@@ -26,7 +26,7 @@ class NoteAdd extends Component {
     }
 
     afterOpenModal = () => {
-        //document.getElementById('focus').focus();
+        document.getElementById('focus').focus();
     }
 
     handleInput = (event) => {
@@ -74,7 +74,7 @@ class NoteAdd extends Component {
                 className='note-view-modal'
                 >
                     <form className='note-edit-form'>
-                        <input className='note-edit-title' placeholder='Title' onChange={this.handleInput}/>
+                        <input className='note-edit-title' placeholder='Title' id='focus' onChange={this.handleInput}/>
                         <textarea cols='50' rows='8' className='note-edit-text' placeholder='Text' onChange={this.handleInput}></textarea>
                         <button className='modal-btn update-btn' type='submit' onClick={this.addNote}>Add Note</button>                        
                         <button className='modal-btn cancel-btn' onClick={this.closeModal}>Cancel</button>

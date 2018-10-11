@@ -13,8 +13,8 @@ class Navbar extends Component {
     }
   }
 
-  handleSearchInput = () => {
-
+  handleSearchInput = (event) => {
+    this.setState({ searchBarValue: event.target.value }, () => this.props.search(this.state.searchBarValue));
   }
 
   toggleDropDown = () => {
@@ -52,7 +52,7 @@ class Navbar extends Component {
               </ul>
             </div>
             <form className='search'>
-              <input className='search-field'></input>
+              <input className='search-field' onChange={this.handleSearchInput}></input>
               <button className='search-btn'>Search</button>
             </form>
             <div className='hamburger' onClick={this.toggleDropDown}>
@@ -64,7 +64,7 @@ class Navbar extends Component {
             </div>
             <div className='drop-down' id='drop-down'>
               <ul>
-                <li className='nav-item drop-down-item'>New Note</li>
+                <li className='nav-item drop-down-item'><NoteAdd updateNotes={this.props.updateNotes} /></li>
                 <li className='nav-item drop-down-item'><LoginModal login={this.props.login} /></li>
                 <li className='nav-item drop-down-item'>About</li>
               </ul>

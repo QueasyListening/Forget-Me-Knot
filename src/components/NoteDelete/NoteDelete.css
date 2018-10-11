@@ -5,7 +5,12 @@
     justify-content: space-between;
 }
 
-.yes-btn {
-    border: 2px solid green;
+.del-btn {
+    border: 2px solid red;
     margin-right: 11px;
+}
+
+.del-btn:focus {
+    background: red;
+    color: white;
 }

@@ -60,8 +60,8 @@ class NoteDelete extends Component {
                 >
                     <div className='note-delete-form'>
                         <h1>Are you sure you want to delete this note?</h1>
-                        <button className='modal-btn yes-btn' id='focus' onClick={this.deleteNote}>Delete Note</button>                        
-                        <button className='modal-btn cancel-btn' onClick={this.closeModal}>Cancel</button>
+                        <button className='modal-btn del-btn' id='focus' onClick={this.deleteNote}>Delete Note</button>                        
+                        <button className='modal-btn' onClick={this.closeModal}>Cancel</button>
                     </div>
                 </Modal>
                 <FontAwesomeIcon className='card-icon' icon={faTrashAlt} onClick={this.openModal}/>

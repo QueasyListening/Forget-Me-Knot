@@ -16,22 +16,17 @@ class App extends Component {
       username: '',
       notes: [],
       loggedInAs: false,
+      masterNotes: [],
     }
   }
 
-  getNotes = () => {
-    // notes retrieved on login
-    // add another route to fetch notes 
-  }
-
   // This method will syncronize the users local notes list with what is on the server.
-  // It is used by components to force an update once changes have been made
+  // It is used by components to force an update to the App state once changes have been made
   updateNotes = () => {
     axios
     .get(`${config.apiUrl}/user/notes`)
     .then(response => {
-      console.log(response.data);
-      this.setState({ notes: response.data });
+      this.setState({ notes: response.data, masterNotes: response.data });
     })
     .catch(error => {
       console.log(error);
@@ -50,27 +45,33 @@ class App extends Component {
     });
   }
 
-  register = () => {
-    
-  }
-
   login = (user) => {
-    this.setState({ loggedInAs: user.username, notes: user.notes });
+    this.setState({ loggedInAs: user.username });
+    this.updateNotes();
   }
 
   logout = () => {
-    // axios call to /api/logout
+    axios
+    .get(`${config.apiUrl}/user/logout`)
+    .then(response => {
+      this.setState({ loggedInAs: false });
+    })
+    .catch(error => {
+      console.log(error);
+    })
   }
 
-  search = () => {
-
+  search = (input) => {
+    input = input.toLowerCase();
+    const newNotes = this.state.masterNotes.filter(note => note.title.toLowerCase().includes(input) || note.text.toLowerCase().includes(input));
+    this.setState({ notes: newNotes });
   }
 
   componentDidMount() {
     axios
     .post(`${config.apiUrl}/user/login`, {})
     .then(response => {
-      this.setState({ loggedInAs: response.data.username, notes: response.data.notes })
+      this.setState({ loggedInAs: response.data.username, notes: response.data.notes, masterNotes: response.data.notes });
     })
     .catch(error => {
       
@@ -81,8 +82,8 @@ class App extends Component {
     return (
       <div className="App">
         <div className='page'>
-        <Navbar search={this.search} login={this.login} logout={this.logout} register={this.register} updateNotes={this.updateNotes} />
-        <WelcomeBar loggedInAs={this.state.loggedInAs}/>
+        <Navbar search={this.search} login={this.login} updateNotes={this.updateNotes} />
+        <WelcomeBar loggedInAs={this.state.loggedInAs} logout={this.logout} register={this.register} login={this.login} />
         <NoteList notes={this.state.notes}
                   addNote={this.addNote}
                   deleteNote={this.deleteNote}

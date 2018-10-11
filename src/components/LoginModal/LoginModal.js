@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import reactDOM from 'react-dom';
 import Modal from 'react-modal'
 import './LoginModal.css';
 import axios from 'axios';
@@ -39,7 +38,7 @@ class LoginModal extends Component{
         axios.post(`${config.apiUrl}/user/login`, credentials)
         .then(response => {
             console.log(response);
-            this.props.login(response.data.user);
+            this.props.login(response.data);
             this.closeModal();
         })
         .catch(error => {

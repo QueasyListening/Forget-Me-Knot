@@ -1,10 +1,21 @@
 body {
   font-family: 'Bitter', serif;
 }
-p {
+
+p, input, textarea, button {
   font-family: 'Open Sans', sans-serif;
 
 }
+
+
+*:focus {
+  outline: 0;
+}
+
+input:focus, textarea:focus {
+  border: 2px solid #42d0f3
+}
+
 .App {
   text-align: center;
   display: flex;
@@ -13,11 +24,6 @@ p {
 
 .page {
   max-width: 1250px;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
 }
 
 .App-header {

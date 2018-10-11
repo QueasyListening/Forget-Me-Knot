@@ -1,7 +1,3 @@
-.login-input, .modal-btn:focus {
-    outline: none;
-}
-
 .overlay {
     position: fixed;
     top: 0;
@@ -41,9 +37,6 @@
     padding: 0 15px;
 }
 
-.btn {
-    
-}
 .modal-btn {
     background: white;
     border: 2px solid darkslategray;
@@ -56,13 +49,26 @@
 .modal-btn:hover {
     cursor: pointer;
 }
+
+.modal-btn:focus {
+    background:slategray;
+    color: white;
+}
+                
 .login-btn {
-    
+    border: 2px solid green;
+}
+
+.login-btn:focus {
+    background: green;
+    color: white;
 }
 
 .cancel-btn {
-    
     border: 2px solid red;
-    
+}
 
+.cancel-btn:focus {
+    background: red;
+    color: white;
 }

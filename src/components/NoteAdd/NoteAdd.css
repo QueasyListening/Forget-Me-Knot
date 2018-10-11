@@ -1,0 +1,16 @@
+.update-btn:focus {
+    background: green;
+    color: white;
+}
+
+.nav-btn {
+    background-color: white;
+    border: none;
+    font-family: 'Bitter', serif;
+    font-size: 1em;
+    border-radius: 10px;
+}               
+
+.nav-btn:focus {
+    background-color: rgb(231, 229, 229);
+}
