@@ -56,7 +56,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log(process.env.API_URL);
+    console.log(process.env.REACT_APP_API_URL);
     axios
     .post(`${config.apiUrl}/user/login`, {})
     .then(response => {
