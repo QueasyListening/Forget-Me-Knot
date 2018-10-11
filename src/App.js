@@ -33,18 +33,6 @@ class App extends Component {
     });
   }
 
-  addNote = (newNote) => {
-    const tempNotes = this.state.notes;
-    tempNotes.push(newNote);
-    this.setState({ notes: tempNotes})
-  }
-
-  deleteNote = (noteId) => {
-    const newNotes = this.state.notes.filter((note) => {
-      note._objectid !== noteId;
-    });
-  }
-
   login = (user) => {
     this.setState({ loggedInAs: user.username });
     this.updateNotes();
@@ -85,8 +73,6 @@ class App extends Component {
         <Navbar search={this.search} login={this.login} updateNotes={this.updateNotes} />
         <WelcomeBar loggedInAs={this.state.loggedInAs} logout={this.logout} register={this.register} login={this.login} />
         <NoteList notes={this.state.notes}
-                  addNote={this.addNote}
-                  deleteNote={this.deleteNote}
                   updateNotes={this.updateNotes} />
         </div>
       </div>

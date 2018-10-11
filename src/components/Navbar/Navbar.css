@@ -15,9 +15,7 @@
 }
 
 .logo {
-    height:40px;
-    width:30px;
-    margin-left: 11px;
+    height:59px;
 }
 .nav-title {
     text-decoration: none;
@@ -60,6 +58,7 @@
     margin-right: 22px;
     border: 2px solid darkgray;
     padding: 0 15px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .search-btn {
@@ -159,5 +158,6 @@
 @media (max-width: 428px) {
     .navbar {
         justify-content: space-between;
+        padding: 0 15px;
     }
 }

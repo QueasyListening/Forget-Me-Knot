@@ -30,3 +30,9 @@ h3 {
   font-family: 'Open Sans', sans-serif;
 }
 
+@media (max-width: 428px) {
+  .noteCard{
+    width: 98%;
+    margin: 2px;
+  } 
+}

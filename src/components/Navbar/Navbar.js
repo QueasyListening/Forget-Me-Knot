@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Navbar.css';
 import LoginModal from '../LoginModal/LoginModal';
 import NoteAdd from '../NoteAdd/NoteAdd';
-import logo from '../../images/fingerKnot.png';
+import logo from '../../images/string-on-finger.png';
 
 class Navbar extends Component {
   constructor(props) {
@@ -42,7 +42,7 @@ class Navbar extends Component {
     return (
         <nav className='navbar'>
             <div className='logo-text-img'>
-            <a className='nav-title' href='#'>Forget Me Knot</a><img className='logo' src={logo}/>
+            <div className='nav-title'>Forget Me Knot</div><img className='logo' alt='hand icon with a red bow around pointer finger' src={logo}/>
             </div>
             <div className='navbar-items'>
               <ul>
@@ -53,7 +53,7 @@ class Navbar extends Component {
             </div>
             <form className='search'>
               <input className='search-field' onChange={this.handleSearchInput}></input>
-              <button className='search-btn'>Search</button>
+              <button className='search-btn' onClick={(event) => event.preventDefault()}>Search</button>
             </form>
             <div className='hamburger' onClick={this.toggleDropDown}>
               <div className='lines'>
