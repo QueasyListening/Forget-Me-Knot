@@ -50,18 +50,16 @@ class SignupModal extends Component{
     handleSignup = (event) => {
         if (this.state.password === this.state.repassword) {
             const credentials = { username: this.state.username, password: this.state.password };
-            console.log(credentials);
             axios.post(`${config.apiUrl}/user/register`, credentials)
             .then(response => {
-                console.log(response);
                 this.props.login(response.data);
                 this.closeModal();
             })
-            .catch(err => {
-                console.log('error', err);
+            .catch(error => {
+                document.getElementsByClassName('signup-warning')[0].innerHTML = error.response.data.error;
             });
         } else {
-
+            document.getElementsByClassName('signup-warning')[0].innerHTML = 'passwords do not match';
         }
     }
 
@@ -79,8 +77,8 @@ class SignupModal extends Component{
             >
             <form className='login-elements'>
                 <input id='focus' value={this.state.usernameInput} onChange={this.handleInput} placeholder='username' className='login-input' />
-                <input value={this.state.passwordInput} onChange={this.handleInput} placeholder='password' className='login-input' name='password'/>
-                <input value={this.state.repasswordInput} onChange={this.handleInput} placeholder='re-enter password' className='login-input' name='password' />
+                <input value={this.state.passwordInput} onChange={this.handleInput} placeholder='password' className='login-input' name='password' type='password' />
+                <input value={this.state.repasswordInput} onChange={this.handleInput} placeholder='re-enter password' className='login-input' name='password' type='password' />
                 <div className='signup-warning'></div>
                 <button onClick={(event) => {
                     event.preventDefault(); 

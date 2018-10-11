@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Navbar.css';
 import LoginModal from '../LoginModal/LoginModal';
 import NoteAdd from '../NoteAdd/NoteAdd';
+import AboutModal from '../AboutModal/AboutModal'
 import logo from '../../images/string-on-finger.png';
 
 class Navbar extends Component {
@@ -48,7 +49,7 @@ class Navbar extends Component {
               <ul>
                 <li className='nav-item'><NoteAdd updateNotes={this.props.updateNotes} /></li>
                 <li className='nav-item'><LoginModal login={this.props.login}/></li>
-                <li className='nav-item'>About</li>
+                <li className='nav-item'><AboutModal /></li>
               </ul>
             </div>
             <form className='search'>
@@ -66,7 +67,7 @@ class Navbar extends Component {
               <ul>
                 <li className='nav-item drop-down-item'><NoteAdd updateNotes={this.props.updateNotes} /></li>
                 <li className='nav-item drop-down-item'><LoginModal login={this.props.login} /></li>
-                <li className='nav-item drop-down-item'>About</li>
+                <li className='nav-item drop-down-item'><AboutModal /></li>
               </ul>
             </div>
           </nav>

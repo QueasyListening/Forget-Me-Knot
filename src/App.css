@@ -7,6 +7,10 @@ input, textarea, button {
   font-weight: 600;
 }
 
+p {
+  font-family: 'Open Sans', sans-serif;
+}
+
 *:focus {
   outline: 0;
 }

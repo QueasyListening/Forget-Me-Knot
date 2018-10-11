@@ -37,13 +37,11 @@ class LoginModal extends Component{
         const credentials = { username: this.state.username, password: this.state.password };
         axios.post(`${config.apiUrl}/user/login`, credentials)
         .then(response => {
-            console.log(response);
             this.props.login(response.data);
             this.closeModal();
         })
         .catch(error => {
             document.getElementsByClassName('login-warning')[0].style.opacity = 1;
-            console.log(error);
         });
     }
 
@@ -61,7 +59,7 @@ class LoginModal extends Component{
             >
             <form className='login-elements'>
                 <input id='focus' value={this.state.usernameInput} onChange={this.handleInput} placeholder='username' className='login-input' />
-                <input value={this.state.passwordInput} onChange={this.handleInput} placeholder='password' className='login-input' />
+                <input value={this.state.passwordInput} onChange={this.handleInput} placeholder='password' className='login-input' type='password' />
                 <div className='login-warning'>incorrect username or password</div>
                 <button onClick={(event) => {
                     event.preventDefault(); 

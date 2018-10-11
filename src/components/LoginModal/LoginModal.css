@@ -81,3 +81,12 @@
     background: red;
     color: white;
 }
+
+@media (max-width: 500px) {
+    .login-modal {
+        top: 2%;
+        bottom: 2%;
+        left: 2%;
+        right: 2%;
+    }
+}
