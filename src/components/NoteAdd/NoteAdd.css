@@ -42,4 +42,8 @@
         height: 64px;
         margin: 0;
     }
+
+    .update-btn:focus, .cancel-btn {
+        margin: 0;
+    }
 }
