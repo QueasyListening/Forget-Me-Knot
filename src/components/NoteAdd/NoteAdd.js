@@ -71,7 +71,7 @@ class NoteAdd extends Component {
                 onRequestClose={this.closeModal}
                 contentLabel={this.title}
                 overlayClassName='overlay'
-                className='note-view-modal'
+                className='note-add-modal'
                 >
                     <form className='note-edit-form'>
                         <input className='note-edit-title' placeholder='Title' id='focus' onChange={this.handleInput}/>

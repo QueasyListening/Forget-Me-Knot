@@ -14,7 +14,7 @@ class App extends Component {
 
     this.state = {
       username: '',
-      notes: [],
+      notes: [{ title: 'Welcome to Forget Me Knot', text: 'Sign up for an account to get started' }],
       loggedInAs: false,
       masterNotes: [],
     }
@@ -42,7 +42,7 @@ class App extends Component {
     axios
     .get(`${config.apiUrl}/user/logout`)
     .then(response => {
-      this.setState({ loggedInAs: false });
+      this.setState({ loggedInAs: false, notes:[], masterNotes:[] });
     })
     .catch(error => {
       console.log(error);
@@ -56,7 +56,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log(process.env.REACT_APP_API_URL);
     axios
     .post(`${config.apiUrl}/user/login`, {})
     .then(response => {
