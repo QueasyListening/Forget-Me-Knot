@@ -42,6 +42,7 @@ class LoginModal extends Component{
             this.closeModal();
         })
         .catch(error => {
+            document.getElementsByClassName('login-warning')[0].style.opacity = 1;
             console.log(error);
         });
     }
@@ -61,6 +62,7 @@ class LoginModal extends Component{
             <form className='login-elements'>
                 <input id='focus' value={this.state.usernameInput} onChange={this.handleInput} placeholder='username' className='login-input' />
                 <input value={this.state.passwordInput} onChange={this.handleInput} placeholder='password' className='login-input' />
+                <div className='login-warning'>incorrect username or password</div>
                 <button onClick={(event) => {
                     event.preventDefault(); 
                     this.handleLogin();

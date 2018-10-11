@@ -54,6 +54,15 @@
     background:slategray;
     color: white;
 }
+
+.login-warning {
+    color: red;
+    height: 7px;
+    opacity: 0;
+    width: 100%;
+    text-align: center;
+    
+}
                 
 .login-btn {
     border: 2px solid green;

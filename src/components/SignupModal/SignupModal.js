@@ -57,8 +57,8 @@ class SignupModal extends Component{
                 this.props.login(response.data);
                 this.closeModal();
             })
-            .catch(error => {
-                console.log(error);
+            .catch(err => {
+                console.log('error', err);
             });
         } else {
 
@@ -81,6 +81,7 @@ class SignupModal extends Component{
                 <input id='focus' value={this.state.usernameInput} onChange={this.handleInput} placeholder='username' className='login-input' />
                 <input value={this.state.passwordInput} onChange={this.handleInput} placeholder='password' className='login-input' name='password'/>
                 <input value={this.state.repasswordInput} onChange={this.handleInput} placeholder='re-enter password' className='login-input' name='password' />
+                <div className='signup-warning'></div>
                 <button onClick={(event) => {
                     event.preventDefault(); 
                     this.handleSignup();
