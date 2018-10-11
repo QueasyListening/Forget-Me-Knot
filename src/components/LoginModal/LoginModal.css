@@ -89,4 +89,8 @@
         left: 2%;
         right: 2%;
     }
+
+    .login-btn {
+        margin: 0;
+    }
 }
