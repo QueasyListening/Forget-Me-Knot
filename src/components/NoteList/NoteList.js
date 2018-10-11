@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './NoteList.css'
-import { testData } from '../../testData';
 import NoteCard from '../NoteCard/NoteCard'
 
 class NoteList extends Component {
