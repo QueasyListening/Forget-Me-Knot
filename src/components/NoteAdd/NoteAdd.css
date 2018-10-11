@@ -37,4 +37,9 @@
         left: 2%;
         right: 2%;
     }
+
+    .note-edit.text {
+        height: 64px;
+        margin: 0;
+    }
 }
