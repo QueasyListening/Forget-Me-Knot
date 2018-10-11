@@ -43,7 +43,7 @@
         margin: 0;
     }
 
-    .update-btn:focus, .cancel-btn {
+    .update-btn, .cancel-btn {
         margin: 0;
     }
 }
