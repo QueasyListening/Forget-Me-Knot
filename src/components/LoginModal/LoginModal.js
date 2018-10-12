@@ -37,7 +37,8 @@ class LoginModal extends Component{
         const credentials = { username: this.state.username, password: this.state.password };
         axios.post(`${config.apiUrl}/user/login`, credentials)
         .then(response => {
-            this.props.login(response.data);
+            console.log(response.data);
+            this.props.login(response.data.user);
             this.closeModal();
         })
         .catch(error => {
