@@ -22,3 +22,13 @@
     justify-self: right;
 
 }
+
+@media (max-width:388px) {
+    .welcome {
+        height:61px;
+    }
+
+    .welcome-text {
+        height: 40px;
+    }
+}

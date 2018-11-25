@@ -65,9 +65,9 @@ class Navbar extends Component {
             </div>
             <div className='drop-down' id='drop-down'>
               <ul>
-                <li className='nav-item drop-down-item'><NoteAdd updateNotes={this.props.updateNotes} /></li>
-                <li className='nav-item drop-down-item'><LoginModal login={this.props.login} /></li>
-                <li className='nav-item drop-down-item'><AboutModal /></li>
+                <li className='nav-item drop-down-item new class name'><NoteAdd updateNotes={this.props.updateNotes} /></li>
+                <li className='nav-item drop-down-item new class name'><LoginModal login={this.props.login} /></li>
+                <li className='nav-item drop-down-item new class name'><AboutModal /></li>
               </ul>
             </div>
           </nav>

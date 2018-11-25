@@ -72,7 +72,7 @@ class SignupModal extends Component{
             onRequestClose={this.closeModal}
             contentLabel="Signup"
             overlayClassName='overlay'
-            className='login-modal'
+            className='signup-modal'
             login={this.props.login}
             >
             <form className='login-elements'>
@@ -84,8 +84,8 @@ class SignupModal extends Component{
                     event.preventDefault(); 
                     this.handleSignup();
                 }} 
-                type='submit' className='modal-btn login-btn'>Register</button>
-                <button onClick={this.closeModal} className='modal-btn cancel-btn'>Cancel</button>
+                type='submit' className='signup-btn modal-btn login-btn'>Register</button>
+                <button onClick={this.closeModal} className='signup-btn modal-btn cancel-btn'>Cancel</button>
             </form>
             </Modal>
             <button className='logout-btn' onClick={this.openModal}>Sign up</button>

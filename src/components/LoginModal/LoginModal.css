@@ -82,6 +82,12 @@
     color: white;
 }
 
+@media (max-width: 569px) {
+    .login-warning {
+        height: 16px;
+    }
+}
+
 @media (max-width: 500px) {
     .login-modal {
         top: 2%;
@@ -92,5 +98,9 @@
 
     .login-btn {
         margin: 0;
+    }
+
+    .login-warning {
+        height: 30px;
     }
 }

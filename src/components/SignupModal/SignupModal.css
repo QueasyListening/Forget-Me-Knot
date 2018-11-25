@@ -1,6 +1,34 @@
 .signup-warning {
-    height: 0;
+    height: 25;
     color: red;
     text-align: center;
     width: 100%;
+}
+
+.signup-modal {
+    position: fixed;
+    top: 20%;
+    bottom: 35%;
+    left: 25%;
+    right: 25%;
+    background-color: white;
+    border-radius: 25px;
+    padding: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 500px) {
+    .signup-modal {
+        top: 2%;
+        bottom: 2%;
+        left: 2%;
+        right: 2%;
+    }
+
+    .signup-btn {
+        margin-top: 30px;
+    }
+
 }

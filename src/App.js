@@ -14,7 +14,7 @@ class App extends Component {
 
     this.state = {
       username: '',
-      notes: [{ title: 'Welcome to Forget Me Knot', text: 'Sign up for an account to get started' }],
+      notes: [{ title: 'Welcome to Forget Me Knot', text: 'Sign up for an account to get started', _id: 0 }],
       loggedInAs: false,
       masterNotes: [],
     }
