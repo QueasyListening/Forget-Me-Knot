@@ -31,7 +31,8 @@ class NoteCard extends Component {
     }
 
     flagNote = () => {
-        let colorChoice = document.getElementById(this.props.note._id);
+        const note = document.getElementById(this.props.note._id);
+        let colorChoice = note.getElementsByClassName('color-choice')[0];
         colorChoice.style.display === 'flex' ? colorChoice.style.display = 'none' : colorChoice.style.display = 'flex';  
         
     }
@@ -45,21 +46,27 @@ class NoteCard extends Component {
 
         if (event.target.className === 'circle') {
             note.getElementsByClassName('outer-circle-grey')[0].style.border = '2px solid grey';
+            note.style.border = '3px solid grey';
         } else if (event.target.className === 'circle circle-green') {
             note.getElementsByClassName('outer-circle-green')[0].style.border = '2px solid green';
+            note.style.border = '3px solid green';
         } else if (event.target.className === 'circle circle-blue') {
             note.getElementsByClassName('outer-circle-blue')[0].style.border = '2px solid blue';
+            note.style.border = '3px solid blue';
         } else if (event.target.className === 'circle circle-orange') {
             note.getElementsByClassName('outer-circle-orange')[0].style.border = '2px solid orange';
+            note.style.border = '3px solid orange';
         }
+
+        
 
     }
 
     render() {
         return (
             <Fragment>
-                <div className='note-card'>
-                    <div className='color-choice' id={this.props.note._id}>
+                <div className='note-card' id={this.props.note._id}>
+                    <div className='color-choice'>
                         <div className='outer-circle outer-circle-grey'>
                             <div onClick={this.colorRadioSelect} className='circle'></div>
                         </div>
