@@ -10,11 +10,12 @@ class NoteEdit extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            titleInput: '',
-            textInput: '',
+            titleInput: this.props.note.title,
+            textInput: this.props.note.text,
             modalIsOpen: false,
         }
         Modal.setAppElement(document.getElementById('root'));
+        
     }
 
     openModal = () => {
@@ -76,8 +77,8 @@ class NoteEdit extends Component {
                 className='note-add-modal'
                 >
                     <form className='note-edit-form'>
-                        <input className='note-edit-title other-stuff' placeholder={this.props.note.title} onChange={this.handleInput}/>
-                        <textarea cols='50' rows='8' className='note-edit-text' placeholder={this.props.note.text} onChange={this.handleInput}></textarea>
+                        <input className='note-edit-title other-stuff' placeholder="Title" value={this.state.titleInput} onChange={this.handleInput}/>
+                        <textarea cols='50' rows='8' className='note-edit-text' placeholder="Text" value={this.state.textInput} onChange={this.handleInput}></textarea>
                         <button className='modal-btn update-btn' type='submit' onClick={this.updateNote}>Update Note</button>                        
                         <button className='modal-btn cancel-btn' onClick={this.closeModal}>Cancel</button>
                     </form>
