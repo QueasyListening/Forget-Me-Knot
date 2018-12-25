@@ -32,19 +32,12 @@ class NoteCard extends Component {
         //document.getElementById('focus').focus();
     }
 
-    flagNote = () => {
-        const note = document.getElementById(this.props.note._id);
-        let colorChoice = note.getElementsByClassName('color-choice')[0];
-        colorChoice.style.display === 'flex' ? colorChoice.style.display = 'none' : colorChoice.style.display = 'flex';  
-    }
-
     render() {
         return (
             <Fragment>
                 <div className='note-card' id={this.props.note._id} style={{border: `3px solid ${this.props.note.flagColor}`}}>
-                    <FlagPicker noteId={this.props.note._id} flagColor={this.props.note.flagColor} />
                     <div className='card-icons'>
-                        <FontAwesomeIcon icon={faFlag} className='card-icon' onClick={this.flagNote}/>
+                        <FlagPicker noteId={this.props.note._id} flagColor={this.props.note.flagColor} />
                         <NoteView title={this.props.note.title} text={this.props.note.text} />
                         <NoteEdit note={this.props.note} updateNotes={this.props.updateNotes} />                 
                         <NoteDelete note={this.props.note} updateNotes={this.props.updateNotes} />

@@ -42,76 +42,9 @@ h3 {
   font-family: 'Open Sans', sans-serif;
 }
 
-.color-choice {
-  position: absolute;
-  height: 30px;
-  width: 125px;
-  border: 2px solid darkgrey;
-  left: 287px;
-  top: 2px;
-  display: flex;
-  bottom: 0%;
-  align-items: center;
-  justify-content: space-around;
-  border-radius: 6px;
-  background: white;
-  display: none;
-  z-index:1;
-}
-
-.circle {
-  border-radius: 50%;
-  height: 9px;
-  width: 9px;
-  background: grey;
-  /* position: absolute; */
-  margin: 2px 0 0 2px;
-  
-}
-
-.outer-circle {
-  
-  border-radius: 50%;
-  height: 13px;
-  width: 13px;
-  border: 2px solid white;
-  
-}
-
-.circle-green {
-  background: green;
-}
-
-.circle-blue {
-  background: blue;
-}
-
-.circle-orange {
-  background: orange;
-}
-
-.outer-circle-grey {
-  
-}
-
-.outer-circle-green {
-
-  
-}
-
-.outer-circle-blue {
-  
- 
-}
-
-.outer-circle-orange {
-  
-  
-}
-
 @media (max-width: 428px) {
   .note-card {
-    width: 98%;
-    margin: 2px;
+      width: 98%;
+      margin: 2px;
   } 
 }

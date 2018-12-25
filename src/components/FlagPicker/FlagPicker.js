@@ -1,10 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import axios from 'axios';
 import config from '../../config';
+import { faFlag } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './FlagPicker.css';
 
 class FlagPicker extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            isOpen: false
+        }
 
         this.colorPicker = React.createRef();
         this.greyRadio = React.createRef();
@@ -17,8 +24,26 @@ class FlagPicker extends Component {
         this.orangeOutline = React.createRef();
 
         this.mouseIsDown = 0;
-        this.chosenColor = this.props.flagColor;
+        this.chosenColor = this.props.flagColor || 'grey';
 
+    }
+
+    displayPicker = () => {
+        if (this.state.isOpen) {
+            this.setState({ isOpen: false });
+        } else {
+            this.setState({ isOpen: true }, () => {
+                if (this.chosenColor === 'grey') {
+                    this.greyOutline.current.style.border = '2px solid grey';
+                } else if (this.chosenColor === 'green') {
+                    this.greenOutline.current.style.border = '2px solid green';
+                } else if (this.chosenColor === 'blue') {
+                    this.blueOutline.current.style.border = '2px solid blue';
+                } else if (this.chosenColor === 'orange') {
+                    this.orangeOutline.current.style.border = '2px solid orange';
+                };
+            });
+        }
     }
 
     colorRadioMouseDown = (event) => {
@@ -94,35 +119,45 @@ class FlagPicker extends Component {
     };
 
     componentDidMount() {
-        if (this.props.flagColor === 'grey') {
-            this.greyOutline.current.style.border = '2px solid grey';
-        } else if (this.props.flagColor === 'green') {
-            this.greenOutline.current.style.border = '2px solid green';
-        } else if (this.props.flagColor === 'blue') {
-            this.blueOutline.current.style.border = '2px solid blue';
-        } else if (this.props.flagColor) {
-            this.orangeOutline.current.style.border = '2px solid orange';
+        if (this.state.isOpen) {
+            if (this.props.flagColor === 'grey') {
+                this.greyOutline.current.style.border = '2px solid grey';
+            } else if (this.props.flagColor === 'green') {
+                this.greenOutline.current.style.border = '2px solid green';
+            } else if (this.props.flagColor === 'blue') {
+                this.blueOutline.current.style.border = '2px solid blue';
+            } else if (this.props.flagColor) {
+                this.orangeOutline.current.style.border = '2px solid orange';
+            };
         };
     };
 
 
     render() {
-        return (
-            <div className='color-choice' ref={this.colorPicker} >
-                <div className='outer-circle outer-circle-grey' ref={this.greyOutline} onMouseDown={this.colorRadioMouseDown}>
-                    <div ref={this.greyRadio} onMouseDown={this.colorRadioMouseDown}  onClick={this.colorRadioMouseUp} onMouseOut={this.colorRadioMouseOut} className='circle'></div>
-                </div>
-                <div className='outer-circle outer-circle-green' ref={this.greenOutline}>
-                    <div ref={this.greenRadio} onMouseDown={this.colorRadioMouseDown}  onClick={this.colorRadioMouseUp} onMouseOut={this.colorRadioMouseOut} className='circle circle-green'></div>
-                </div>
-                <div className='outer-circle outer-circle-blue' ref={this.blueOutline}>
-                    <div ref={this.blueRadio} onMouseDown={this.colorRadioMouseDown}  onClick={this.colorRadioMouseUp} onMouseOut={this.colorRadioMouseOut} className='circle circle-blue' ></div>
-                </div>
-                <div className='outer-circle outer-circle-orange' ref={this.orangeOutline}>
-                    <div ref={this.orangeRadio} onMouseDown={this.colorRadioMouseDown}  onClick={this.colorRadioMouseUp} onMouseOut={this.colorRadioMouseOut} className='circle circle-orange'></div>
-                </div>
-            </div>
-        )
+        if (this.state.isOpen)
+            return (
+                <Fragment>  
+                    <div className='color-choice' ref={this.colorPicker} >
+                        <div className='outer-circle outer-circle-grey' ref={this.greyOutline} onMouseDown={this.colorRadioMouseDown}>
+                            <div ref={this.greyRadio} onMouseDown={this.colorRadioMouseDown}  onClick={this.colorRadioMouseUp} onMouseOut={this.colorRadioMouseOut} className='circle'></div>
+                        </div>
+                        <div className='outer-circle outer-circle-green' ref={this.greenOutline}>
+                            <div ref={this.greenRadio} onMouseDown={this.colorRadioMouseDown}  onClick={this.colorRadioMouseUp} onMouseOut={this.colorRadioMouseOut} className='circle circle-green'></div>
+                        </div>
+                        <div className='outer-circle outer-circle-blue' ref={this.blueOutline}>
+                            <div ref={this.blueRadio} onMouseDown={this.colorRadioMouseDown}  onClick={this.colorRadioMouseUp} onMouseOut={this.colorRadioMouseOut} className='circle circle-blue' ></div>
+                        </div>
+                        <div className='outer-circle outer-circle-orange' ref={this.orangeOutline}>
+                            <div ref={this.orangeRadio} onMouseDown={this.colorRadioMouseDown}  onClick={this.colorRadioMouseUp} onMouseOut={this.colorRadioMouseOut} className='circle circle-orange'></div>
+                        </div>
+                    </div>
+                    <FontAwesomeIcon icon={faFlag} className='card-icon' onClick={this.displayPicker}/>
+                </Fragment>
+            )
+        else 
+            return (
+                <FontAwesomeIcon icon={faFlag} className='card-icon' onClick={this.displayPicker}/>
+            )
     }
 }
 
