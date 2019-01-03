@@ -35,6 +35,7 @@ class AboutModal extends Component {
                 overlayClassName='overlay'
                 className='about-modal'
                 >
+                    <div className='close-modal'>X</div>
                     <div className='about-modal-content'>
                         <h1>Thanks for checking out Forget Me Knot!</h1>
                         <p>This note keeping web application was developed by me, Josh Coyne, for the purposes 

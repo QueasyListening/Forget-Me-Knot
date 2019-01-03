@@ -134,7 +134,7 @@ class FlagPicker extends Component {
         if (this.state.isOpen)
             return (
                 <Fragment>
-                    <div className='overlay' onClick={this.displayPicker}></div>
+                    <div className='flag-picker-overlay' onClick={this.displayPicker}></div>
                     <div className='color-choice' ref={this.colorPicker} >
                         <div className='outer-circle outer-circle-grey' ref={this.greyOutline} onMouseDown={this.colorRadioMouseDown}>
                             <div ref={this.greyRadio} onMouseDown={this.colorRadioMouseDown}  onClick={this.colorRadioMouseUp} onMouseOut={this.colorRadioMouseOut} className='circle'></div>
