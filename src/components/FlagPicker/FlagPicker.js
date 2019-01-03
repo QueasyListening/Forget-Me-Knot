@@ -23,7 +23,6 @@ class FlagPicker extends Component {
         this.blueOutline = React.createRef();
         this.orangeOutline = React.createRef();
 
-        this.mouseIsDown = 0;
         this.chosenColor = this.props.flagColor || 'grey';
 
     }
@@ -47,8 +46,6 @@ class FlagPicker extends Component {
     }
 
     colorRadioMouseDown = (event) => {
-
-        this.mouseIsDown++;
 
         const greyRadio = this.greyRadio.current;
         const greenRadio = this.greenRadio.current;
