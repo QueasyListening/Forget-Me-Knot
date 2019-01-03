@@ -1,4 +1,9 @@
 
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+}
 .color-choice {
     position: absolute;
     height: 30px;
